@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
     <script src="js/classes/KernelInputFields.js"></script>
+    <script src="js/classes/KernelFilter.js"></script>
+    <script src="js/classes/NameLater.js"></script>
+    <script src="js/classes/Canvas.js"></script>
     <script src="js/main.js"></script>
     <title>Video Filtering</title>
 </head>
 <body onload="init()">
     <input type="file" accept="video/*"/>
-    <div>
-        <video id="video" controls></video>
+    <div id="video-container">
+        <video id="video" controls muted></video>
         <div id="kernel"></div>
     </div>
-<img id="testbild" src="test.png"><img/>
+<canvas id="canvas"></canvas>
 </body>
 </html>
