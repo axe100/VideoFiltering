@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+    <script src="js/main.js"></script>
+    <title>Video Filtering</title>
 </head>
-<body>
-
+<body onload="init()">
+<div>
+    <input class="underneath" type="file" accept="video/*"/>
+    <video id="video" class="underneath" controls></video>
+</div>
 </body>
 </html>
