@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+    <script src="js/classes/KernelInputFields.js"></script>
     <script src="js/main.js"></script>
     <title>Video Filtering</title>
 </head>
 <body onload="init()">
-<div>
-    <input class="underneath" type="file" accept="video/*"/>
-    <video id="video" class="underneath" controls></video>
-</div>
+    <input type="file" accept="video/*"/>
+    <div>
+        <video id="video" controls></video>
+        <div id="kernel"></div>
+    </div>
 </body>
 </html>

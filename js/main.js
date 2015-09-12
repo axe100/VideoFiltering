@@ -2,8 +2,11 @@
  * Created by D062114 on 9/12/15.
  */
 
+var kernelInputFields = new KernelInputFields();
+
 function init() {
     addFileInputChangeListener();
+    kernelInputFields.generateKernelInputFields();
 }
 
 function addFileInputChangeListener() {
