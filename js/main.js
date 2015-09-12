@@ -3,7 +3,6 @@
  */
 
 var KernelInputFields = new KernelInputFields();
-var NameLater = new NameLater();
 var KernelFilter = new KernelFilter();
 var Canvas = new Canvas();
 
