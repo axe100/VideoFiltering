@@ -33,12 +33,8 @@ function draw() {
     if(video.paused || video.ended)	return false;
     dataRetrivalHelperContext.drawImage(video,0,0,videoWith, videoHeight);
     var frameData = dataRetrivalHelperContext.getImageData(0, 0, videoWith, videoHeight);
-    var matrix;
-    frameData = KernelFilter.applyKernelFilterToFrameDataWithMatrix(frameData,
-           [1,1,1,1,1,
-            1,1,1,1,1,
-            1,1,1,1,1,
-            1,1,1,1,1], 0.2);
+    var kernel = KernelInputFields.getKernelValuesAsArray();
+    frameData = KernelFilter.applyKernelFilterToFrameDataWithMatrix(frameData, kernel, 0.2);
     drawingContext.putImageData(frameData, 0, 0);
     setTimeout(draw, 20);
 }
