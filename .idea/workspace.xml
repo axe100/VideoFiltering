@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d8e2d4d-3c91-490e-9e94-725dba956ccd" name="Default" comment="" />
+    <list default="true" id="3d8e2d4d-3c91-490e-9e94-725dba956ccd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/classes/KernelFilter.js" afterPath="$PROJECT_DIR$/js/classes/KernelFilter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+    </list>
     <ignored path="VideoFiltering.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KernelFilter.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KernelFilter.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/classes/KernelFilter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.36817473">
+              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
               <folding>
                 <element signature="n#!!doc;n#KernelFilter#0" expanded="false" />
               </folding>
@@ -55,18 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26946107">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -117,9 +113,9 @@
         <option value="$PROJECT_DIR$/resources/css/index.css" />
         <option value="$PROJECT_DIR$/js/classes/Canvas.js" />
         <option value="$PROJECT_DIR$/js/classes/NameLater.js" />
-        <option value="$PROJECT_DIR$/js/classes/KernelFilter.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/classes/KernelFilter.js" />
       </list>
     </option>
   </component>
@@ -371,27 +367,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/classes/Canvas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc;n#Canvas#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/classes/KernelFilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc;n#KernelFilter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -406,10 +387,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26946107">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/classes/KernelFilter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36817473">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc;n#KernelFilter#0" expanded="false" />
           </folding>
         </state>
       </provider>
