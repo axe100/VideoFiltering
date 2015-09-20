@@ -3,7 +3,6 @@
  */
 
 var KernelFilter = new KernelFilter();
-var Canvas = new Canvas();
 
 var video;
 var videoWith;
