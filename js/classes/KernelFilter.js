@@ -4,8 +4,8 @@
 
 function KernelFilter() {
 
-    this.applyKernelFilterToFrameDataWithMatrix = function(frame, weights, opaque) {
-        var kernelWidth = Math.round(Math.sqrt(weights.length));
+    this.applyKernelFilterToFrameDataWithMatrix = function(frame, kernel, scale) {
+        var kernelWidth = Math.round(Math.sqrt(kernel.length));
         var kernelBorderWidth = Math.floor(kernelWidth/2);
         var framePixels = frame.data;
         var frameWidth = frame.width;
@@ -16,7 +16,6 @@ function KernelFilter() {
         var helperContext = helperCanvas.getContext('2d');
         var outputFrame = helperContext.createImageData(width,height);
         var outputFramePixels = outputFrame.data;
-        var alphaFac = opaque ? 1 : 0;
         for (var y=0; y<height; y++) {
             for (var x=0; x<width; x++) {
                 var pixelY = y;
@@ -29,10 +28,10 @@ function KernelFilter() {
                         var scx = pixelX + kernelX  - kernelBorderWidth;
                         if (scy >= 0 && scy < frameHeight && scx >= 0 && scx < frameWidth) {
                             var addingPixelValueOffset = (scy*frameWidth+scx)*4;
-                            var weightAtKernelPosition = weights[kernelY *kernelWidth+kernelX ];
-                            red += framePixels[addingPixelValueOffset] * weightAtKernelPosition;
-                            green += framePixels[addingPixelValueOffset+1] * weightAtKernelPosition;
-                            blue += framePixels[addingPixelValueOffset+2] * weightAtKernelPosition;
+                            var weightAtKernelPosition = kernel[kernelY *kernelWidth+kernelX ];
+                            red += framePixels[addingPixelValueOffset] * weightAtKernelPosition * scale;
+                            green += framePixels[addingPixelValueOffset+1] * weightAtKernelPosition * scale;
+                            blue += framePixels[addingPixelValueOffset+2] * weightAtKernelPosition * scale;
                             alpha += framePixels[addingPixelValueOffset+3] * weightAtKernelPosition;
                         }
                     }
@@ -40,7 +39,7 @@ function KernelFilter() {
                 outputFramePixels[pixelValuesOffset] = red;
                 outputFramePixels[pixelValuesOffset+1] = green;
                 outputFramePixels[pixelValuesOffset+2] = blue;
-                outputFramePixels[pixelValuesOffset+3] = alpha + alphaFac*(255-alpha);
+                outputFramePixels[pixelValuesOffset+3] = alpha;
             }
         }
         return outputFrame;

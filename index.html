@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
-    <script src="js/classes/KernelInputFields.js"></script>
+    <script src="js/classes/KernelInput.js"></script>
     <script src="js/classes/KernelFilter.js"></script>
     <script src="js/classes/Canvas.js"></script>
     <script src="js/main.js"></script>
@@ -11,6 +11,8 @@
 </head>
 <body onload="init()">
     <input type="file" accept="video/*"/>
+    <button id="applyFilterButton">Apply Filter</button>
+    <p>Skalieren: </p><input id="scale" type="text"/>
     <div id="video-container">
         <video id="video" controls muted></video>
         <div id="kernel"></div>
