@@ -4,7 +4,7 @@
 
 function KernelFilter() {
 
-    this.applyKernelFilterToFrameDataWithMatrix = function(frame, kernel, scale) {
+    this.applyKernelFilterToFrameDataWithMatrixAndScale = function(frame, kernel, scale) {
         var kernelWidth = Math.round(Math.sqrt(kernel.length));
         var kernelBorderWidth = Math.floor(kernelWidth/2);
         var framePixels = frame.data;
@@ -22,9 +22,9 @@ function KernelFilter() {
                 var red = 0, green = 0, blue = 0, alpha = 0;
                 for (var kernelY = 0; kernelY < kernelWidth; kernelY ++) {
                     for (var kernelX = 0; kernelX < kernelWidth; kernelX ++) {
-                        var scy = pixelY + kernelY  - kernelBorderWidth;
                         var scx = pixelX + kernelX  - kernelBorderWidth;
-                        if (scy >= 0 && scy < frameHeight && scx >= 0 && scx < frameWidth) {
+                        var scy = pixelY + kernelY  - kernelBorderWidth;
+                        if (isPixelInsideOfFrame(scx, scy, frameWidth, frameHeight)) {
                             var addingPixelValueOffset = (scy*frameWidth+scx)*4;
                             var weightAtKernelPosition = kernel[kernelY *kernelWidth+kernelX ];
                             red += framePixels[addingPixelValueOffset] * weightAtKernelPosition;
@@ -47,6 +47,14 @@ function KernelFilter() {
         var helperCanvas = document.createElement('canvas');
         var helperContext = helperCanvas.getContext('2d');
         var result = helperContext.createImageData(width,height);
+        return result;
+    }
+
+    function isPixelInsideOfFrame(pixelX, pixelY, frameWidth, frameHeight) {
+        var result = false;
+        if (pixelX >= 0 && pixelX < frameWidth && pixelY >= 0 && pixelY < frameHeight) {
+            result = true;
+        }
         return result;
     }
 }

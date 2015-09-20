@@ -41,7 +41,7 @@ function draw() {
     if(video.paused || video.ended)	return false;
     dataRetrivalHelperContext.drawImage(video,0,0,videoWith, videoHeight);
     var frameData = dataRetrivalHelperContext.getImageData(0, 0, videoWith, videoHeight);
-    frameData = KernelFilter.applyKernelFilterToFrameDataWithMatrix(frameData, kernelValue, scaleValue);
+    frameData = KernelFilter.applyKernelFilterToFrameDataWithMatrixAndScale(frameData, kernelValue, scaleValue);
     drawingContext.putImageData(frameData, 0, 0);
     setTimeout(draw, 20);
 }
