@@ -41,7 +41,7 @@ function KernelFilter() {
             }
         }
         return outputFrame;
-    }
+    };
 
     function createEmptyOutputFrameWithWidthAndHeight(width, height) {
         var helperCanvas = document.createElement('canvas');

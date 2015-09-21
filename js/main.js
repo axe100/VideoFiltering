@@ -2,7 +2,8 @@
  * Created by D062114 on 9/12/15.
  */
 
-var KernelFilter = new KernelFilter();
+var kernelFilter = new KernelFilter();
+var kernelInput = new KernelInput();
 
 var video;
 var videoWith;
@@ -18,7 +19,6 @@ function init() {
     initVariables();
     addFileInputChangeListener();
     addVideoPlayEventListener();
-    var kernelInput = new KernelInput();
     kernelValue = kernelInput.getKernelValues();
     scaleValue = kernelInput.getScaleValue();
     document.getElementById("applyFilterButton").addEventListener("click", function(){
@@ -41,14 +41,13 @@ function draw() {
     if(video.paused || video.ended)	return false;
     dataRetrivalHelperContext.drawImage(video,0,0,videoWith, videoHeight);
     var frameData = dataRetrivalHelperContext.getImageData(0, 0, videoWith, videoHeight);
-    frameData = KernelFilter.applyKernelFilterToFrameDataWithMatrixAndScale(frameData, kernelValue, scaleValue);
+    frameData = kernelFilter.applyKernelFilterToFrameDataWithMatrixAndScale(frameData, kernelValue, scaleValue);
     drawingContext.putImageData(frameData, 0, 0);
     setTimeout(draw, 20);
 }
 
 function addFileInputChangeListener() {
-    var inputNode;
-    inputNode = document.querySelector('input');
+    var inputNode = document.querySelector('input');
     inputNode.addEventListener('change', playSelectedFile, false);
 }
 
