@@ -3,7 +3,6 @@
  */
 
 var kernelFilter = new KernelFilter();
-var kernelInput = new KernelInput();
 
 var video;
 var videoWith;
@@ -19,6 +18,7 @@ function init() {
     initVariables();
     addFileInputChangeListener();
     addVideoPlayEventListener();
+    var kernelInput = new KernelInput();
     kernelValue = kernelInput.getKernelValues();
     scaleValue = kernelInput.getScaleValue();
     document.getElementById("applyFilterButton").addEventListener("click", function(){
