@@ -37,7 +37,6 @@ function initVariables() {
 }
 
 function draw() {
-    console.log("draw");
     if(video.paused || video.ended)	return false;
     dataRetrivalHelperContext.drawImage(video,0,0,videoWith, videoHeight);
     var frameData = dataRetrivalHelperContext.getImageData(0, 0, videoWith, videoHeight);

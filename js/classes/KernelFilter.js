@@ -4,40 +4,40 @@
 
 function KernelFilter() {
 
-    this.applyKernelFilterToFrameDataWithMatrixAndScale = function(frame, kernel, scale) {
-        var kernelWidth = Math.round(Math.sqrt(kernel.length));
-        var kernelBorderWidth = Math.floor(kernelWidth/2);
-        var framePixels = frame.data;
-        var frameWidth = frame.width;
-        var frameHeight = frame.height;
-        var width = frameWidth;
-        var height = frameHeight;
-        var outputFrame = createEmptyOutputFrameWithWidthAndHeight(width, height);
+    this.applyKernelFilterToFrameDataWithMatrixAndScale = function(pixels, kernel, scale) {
+        var side = Math.round(Math.sqrt(kernel.length));
+        var halfSide = Math.floor(side/2);
+
+        var src = pixels.data;
+        var sw = pixels.width;
+        var sh = pixels.height;
+
+        var w = sw;
+        var h = sh;
+        var outputFrame = createEmptyOutputFrameWithWidthAndHeight(w, h);
         var outputFramePixels = outputFrame.data;
-        for (var y=0; y<height; y++) {
-            for (var x=0; x<width; x++) {
-                var pixelY = y;
-                var pixelX = x;
-                var pixelValuesOffset = (y*width+x)*4;
-                var red = 0, green = 0, blue = 0, alpha = 0;
-                for (var kernelY = 0; kernelY < kernelWidth; kernelY ++) {
-                    for (var kernelX = 0; kernelX < kernelWidth; kernelX ++) {
-                        var scx = pixelX + kernelX  - kernelBorderWidth;
-                        var scy = pixelY + kernelY  - kernelBorderWidth;
-                        if (isPixelInsideOfFrame(scx, scy, frameWidth, frameHeight)) {
-                            var addingPixelValueOffset = (scy*frameWidth+scx)*4;
-                            var weightAtKernelPosition = kernel[kernelY *kernelWidth+kernelX ];
-                            red += framePixels[addingPixelValueOffset] * weightAtKernelPosition;
-                            green += framePixels[addingPixelValueOffset+1] * weightAtKernelPosition;
-                            blue += framePixels[addingPixelValueOffset+2] * weightAtKernelPosition;
-                            alpha += framePixels[addingPixelValueOffset+3] * weightAtKernelPosition;
-                        }
+
+        for (var y=0; y<h; y++) {
+            for (var x=0; x<w; x++) {
+                var sy = y;
+                var sx = x;
+                var dstOff = (y*w+x)*4;
+                var r=0, g=0, b=0;
+                for (var cy=0; cy<side; cy++) {
+                    for (var cx=0; cx<side; cx++) {
+                        var scy = Math.min(sh-1, Math.max(0, sy + cy - halfSide));
+                        var scx = Math.min(sw-1, Math.max(0, sx + cx - halfSide));
+                        var srcOff = (scy*sw+scx)*4;
+                        var wt = kernel[cy*side+cx];
+                        r += src[srcOff] * wt / scale;
+                        g += src[srcOff+1] * wt / scale;
+                        b += src[srcOff+2] * wt / scale;
                     }
                 }
-                outputFramePixels[pixelValuesOffset] = red/scale;
-                outputFramePixels[pixelValuesOffset+1] = green/scale;
-                outputFramePixels[pixelValuesOffset+2] = blue/scale;
-                outputFramePixels[pixelValuesOffset+3] = alpha;
+                outputFramePixels[dstOff] = r;
+                outputFramePixels[dstOff+1] = g;
+                outputFramePixels[dstOff+2] = b;
+                outputFramePixels[dstOff+3] = 255;
             }
         }
         return outputFrame;
